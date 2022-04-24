@@ -1,7 +1,5 @@
 package pages.otus.utils;
 
-import java.time.LocalDate;
-
 public class DateTimeConverter {
 
     public static String getNumericMonth(String month) {
@@ -40,6 +38,9 @@ public class DateTimeConverter {
         }
         if (month.toLowerCase().contains("декабр")) {
             return "12";
+        }
+        if (month.toLowerCase().contains("старта")) {
+            return "00";
         }
         throw new IllegalArgumentException("Месяц не найден");
     }

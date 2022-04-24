@@ -1,32 +1,17 @@
 package pages.otus.component;
 
-import org.openqa.selenium.WebElement;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
+@Getter
+@Setter
+@AllArgsConstructor
 public class Course {
 
     private String courseName;
     private LocalDate courseBeginDate;
-
-    public Course(String courseName, LocalDate courseBeginDate) {
-        this.courseName = courseName;
-        this.courseBeginDate = courseBeginDate;
-    }
-
-    public String getCourseName() {
-        return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
-    public LocalDate getCourseBeginDate() {
-        return courseBeginDate;
-    }
-
-    public void setCourseBeginDate(LocalDate courseBeginDate) {
-        this.courseBeginDate = courseBeginDate;
-    }
+    private int indexOfWebElement;
 }

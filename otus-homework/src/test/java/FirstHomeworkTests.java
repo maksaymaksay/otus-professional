@@ -1,19 +1,14 @@
 import org.apache.logging.log4j.LogManager;
-import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import pages.otus.MainPage;
 import pages.otus.component.Course;
-
-import java.time.LocalDate;
+import pages.otus.utils.CourseFilterType;
 
 import static java.time.Duration.ofSeconds;
 import static org.junit.Assert.assertNotNull;
 
 public class FirstHomeworkTests extends BaseTest {
     private org.apache.logging.log4j.Logger logger = LogManager.getLogger(BaseTest.class);
-
-
 
     @Test
     //1. На главной странице Otus'a снизу найти список курсов(популярные курсы, специализации, рекомендации) и реализовать
@@ -24,13 +19,14 @@ public class FirstHomeworkTests extends BaseTest {
     //4. Фабрику (WebDriverFactory), которая будет получать значение из окружения и запускать соответствующий браузер Браузеры: Chrome, Firefox, Opera
 
     public void filterCourseByNameTest() {
-        driver.manage().timeouts().implicitlyWait(ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(ofSeconds(3));
 
         Course course = new MainPage(driver)
                 .openOtus()
                 .login()
                 .authOtus()
-                .filterCourseByCourseName("Unity Game Developer. Professional");
+                .clickOnAllCoursesBtn()
+                .filterCourseByCourseName("Разработчик IoT");
 
         assertNotNull(course);
 //-Dbrowser=chrome -Dprofile=test -Dlogin=jenya_maksaeva@mail.ru -Dpassword=Maksaeva
@@ -38,26 +34,14 @@ public class FirstHomeworkTests extends BaseTest {
 
     @Test
     public void filterCourseByDateTest() {
-        driver.manage().timeouts().implicitlyWait(ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(ofSeconds(3));
 
-        new MainPage(driver)
+        Course course = new MainPage(driver)
                 .openOtus()
                 .login()
                 .authOtus()
-                .filterCourseByStartDate(course -> course.getCourseBeginDate().isBefore(LocalDate.now()));
+                .clickOnAllCoursesBtn()
+                .filterCourseByStartDate(CourseFilterType.EARLIEST);
 
     }
-
-    @Test
-    public void actionsAndListenersTest() {
-        driver.manage().timeouts().implicitlyWait(ofSeconds(5));
-
-        new MainPage(driver)
-                .openOtus()
-                .login()
-                .authOtus();
-
-    }
-
-
 }
