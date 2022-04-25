@@ -77,7 +77,7 @@ public class MarkBeforeClickListener implements WebDriverEventListener {
     @Override
     public void beforeClickOn(WebElement element, WebDriver driver) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].style.border='3px solid red'", element);
-// Пауза, что бы мы успели рассмотреть
+        // Пауза, что бы мы успели рассмотреть
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {

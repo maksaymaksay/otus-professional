@@ -1,12 +1,11 @@
 package pages.otus;
 
+import static java.time.Duration.ofSeconds;
+
 import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import pages.otus.component.Course;
 import pages.otus.utils.CourseFilterType;
@@ -17,8 +16,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import static java.time.Duration.ofSeconds;
 
 public class CoursesPage extends AbstractPage {
 

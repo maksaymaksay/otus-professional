@@ -1,11 +1,11 @@
+import static java.time.Duration.ofSeconds;
+import static org.junit.Assert.assertNotNull;
+
 import org.apache.logging.log4j.LogManager;
 import org.junit.Test;
 import pages.otus.MainPage;
 import pages.otus.component.Course;
 import pages.otus.utils.CourseFilterType;
-
-import static java.time.Duration.ofSeconds;
-import static org.junit.Assert.assertNotNull;
 
 public class FirstHomeworkTests extends BaseTest {
     private org.apache.logging.log4j.Logger logger = LogManager.getLogger(BaseTest.class);
