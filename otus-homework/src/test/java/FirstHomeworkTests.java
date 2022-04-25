@@ -27,9 +27,7 @@ public class FirstHomeworkTests extends BaseTest {
                 .authOtus()
                 .clickOnAllCoursesBtn()
                 .filterCourseByCourseName("Разработчик IoT");
-
         assertNotNull(course);
-//-Dbrowser=chrome -Dprofile=test -Dlogin=jenya_maksaeva@mail.ru -Dpassword=Maksaeva
     }
 
     @Test
@@ -42,6 +40,5 @@ public class FirstHomeworkTests extends BaseTest {
                 .authOtus()
                 .clickOnAllCoursesBtn()
                 .filterCourseByStartDate(CourseFilterType.EARLIEST);
-
     }
 }
