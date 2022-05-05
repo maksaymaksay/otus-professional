@@ -1,34 +1,33 @@
 package service;
 
-import dto.pet.Pet;
+import dto.store.Order;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 
-public class PetApi {
-
+public class StoreOrderApi {
     private static final String BASE_URL = "https://petstore.swagger.io/v2";
-    private static final String PATH = "/pet";
+    private static final String PATH = "/store/order";
 
     private RequestSpecification specification;
 
-    public PetApi(){
+    public StoreOrderApi() {
         specification = given()
                 .baseUri(BASE_URL)
                 .contentType(ContentType.JSON);
     }
 
-    public Response createPet(Pet pet){
+    public Response placeOrder(Order order) {
         return given(specification)
                 .log().all()
-                .body(pet)
+                .body(order)
                 .when()
                 .post(PATH);
     }
 
-    public Response createPet(String json){
+    public Response placeOrder(String json) {
         return given(specification)
                 .log().all()
                 .body(json)
